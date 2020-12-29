@@ -1,58 +1,24 @@
 package liftsimulation.UI;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Simulation extends JFrame {
+public class Simulation extends JFrame{
+    private JPanel mainPanel;
+    private JTabbedPane tabbedPane;
+    private JPanel simulationPage;
+    private JPanel aboutPage;
+    private JPanel buildingSpace;
+    private JPanel controlSpace;
 
-    private JButton runTheLiftButton;
-    private JPanel rootPanel;
-    private JButton writerButton;
-    private JTextField textFieldForWriter;
-    private JLabel textDisplay;
-    private JButton changeColorTesterButton;
-    private JLabel colorChangeText;
-
-    private boolean testerBool = true;
-
+    /**
+     * Default constructor
+     */
     public Simulation() {
+        this.setTitle(Settings.DISPLAY_NAME);
+        this.setSize(Settings.WIDTH,Settings.HEIGHT);
 
-        add(rootPanel);
-        setTitle(Settings.DISPLAY_NAME);
-        setSize(Settings.WIDTH, Settings.HEIGHT);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        // Button
-        runTheLiftButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                JOptionPane.showMessageDialog(rootPanel,"Testing!!!");
-            }
-        });
-
-        // For the writer tester
-        writerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                textDisplay.setText(textFieldForWriter.getText());
-            }
-        });
-
-        // For change color test
-        changeColorTesterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(testerBool) {
-                    colorChangeText.setBackground(Color.GREEN);
-                    testerBool = false;
-                } else {
-                    colorChangeText.setBackground(Color.YELLOW);
-                    testerBool = true;
-                }
-            }
-        });
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setContentPane(mainPanel);
     }
 
 
