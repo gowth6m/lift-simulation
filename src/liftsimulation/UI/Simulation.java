@@ -15,6 +15,10 @@ public class Simulation extends JFrame{
     private JPanel controlSpace;
     private JButton updateFloorsButton;
     private JTextField enterNumberOfFloorsTextField;
+    private JTextField liftCapacityTextField;
+    private JButton updateLiftCapacityButton;
+    private JTextField numberOfPeopleInTextField;
+    private JButton updateNumberOfPeopleButton;
 
     /**
      * Default constructor
@@ -25,16 +29,26 @@ public class Simulation extends JFrame{
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(mainPanel);
 
+        /**
+         * Update number of floors to the building
+         */
         updateFloorsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 int floors = Integer.parseInt(enterNumberOfFloorsTextField.getText());
-                updateFloors(floors);
+                buildingSpace.removeAll();
+                addFloors(floors);
                 SwingUtilities.updateComponentTreeUI(mainPanel);
             }
         });
+
+        addDetailsToGUI();
     }
 
+    /**
+     * Adds number of floors
+     * @param noOfFloors
+     */
     public void addFloors(int noOfFloors) {
         buildingSpace.setLayout(new BoxLayout(buildingSpace, BoxLayout.Y_AXIS));
 
@@ -45,16 +59,22 @@ public class Simulation extends JFrame{
 
         for(JLabel jLabel:listOfBtns) {
             jLabel.setOpaque(true);
-            jLabel.setBackground(Color.gray);
             jLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            jLabel.setSize(300, 100);
+            jLabel.setVerticalAlignment(JLabel.CENTER);
+            jLabel.setFont(new Font("Monaco", Font.PLAIN, 14));
+            jLabel.setPreferredSize(new Dimension(700, 200));
+            jLabel.setMaximumSize(new Dimension(700, 200));
+            jLabel.setForeground(new Color(0, 0, 0));
+            jLabel.setBackground(new Color(205, 205, 205));
             buildingSpace.add(jLabel);
         }
     }
 
-    public void updateFloors(int noOfFloors) {
-        buildingSpace.removeAll();
-        addFloors(noOfFloors);
-    }
+//    public void updateFloors(int noOfFloors) {
+//        buildingSpace.removeAll();
+//        addFloors(noOfFloors);
+//    }
+    private void addDetailsToGUI() {
 
+    }
 }

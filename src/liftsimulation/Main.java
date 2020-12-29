@@ -14,7 +14,7 @@ public class Main {
                 Simulation simulation = new Simulation();
                 simulation.setVisible(true);
 
-                simulation.addFloors(20);
+                simulation.addFloors(10);
             }
         });
     }
