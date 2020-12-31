@@ -12,5 +12,9 @@ public class Building {
 
     public Building(int maxFloor) {
         this.maxFloor = maxFloor;
+        for(int i = 0; i < maxFloor; i++) {
+            listOfFloors.add(new Floor(i));
+        }
     }
+
 }

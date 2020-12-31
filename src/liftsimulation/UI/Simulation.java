@@ -5,8 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class Simulation extends JFrame{
+public class Simulation extends JFrame {
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
     private JPanel simulationPage;
@@ -19,6 +20,12 @@ public class Simulation extends JFrame{
     private JButton updateLiftCapacityButton;
     private JTextField numberOfPeopleInTextField;
     private JButton updateNumberOfPeopleButton;
+
+    ArrayList<JLabel> listOfFloorJLabel = new ArrayList<>();
+//    private volatile int currentFloor = 0;
+    //TODO
+    final AtomicInteger currentFloor = new AtomicInteger(0);
+    final AtomicInteger targetF = new AtomicInteger(5);
 
     /**
      * Default constructor
@@ -37,12 +44,23 @@ public class Simulation extends JFrame{
             public void actionPerformed(ActionEvent actionEvent) {
                 int floors = Integer.parseInt(enterNumberOfFloorsTextField.getText());
                 buildingSpace.removeAll();
+                listOfFloorJLabel.clear();
                 addFloors(floors);
+                //TODO
+                listOfFloorJLabel.get(floors).setBackground(new Color(000, 155, 100));
                 SwingUtilities.updateComponentTreeUI(mainPanel);
             }
         });
-
         addDetailsToGUI();
+
+        //TODO : testing out lift animation on this button
+        updateNumberOfPeopleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                liftMovingAnimation(targetF.get());
+                System.out.println("button function: " + Thread.currentThread().getName());
+            }
+        });
     }
 
     /**
@@ -52,22 +70,26 @@ public class Simulation extends JFrame{
     public void addFloors(int noOfFloors) {
         buildingSpace.setLayout(new BoxLayout(buildingSpace, BoxLayout.Y_AXIS));
 
-        ArrayList<JLabel> listOfBtns = new ArrayList<>();
         for(int i=noOfFloors; i >= 0; i--) {
-            listOfBtns.add(new JLabel("Floor "+i));
+            listOfFloorJLabel.add(new JLabel("Floor "+i));
         }
-
-        for(JLabel jLabel:listOfBtns) {
+        // For each floor label in building part of GUI
+        for(JLabel jLabel:listOfFloorJLabel) {
             jLabel.setOpaque(true);
             jLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             jLabel.setVerticalAlignment(JLabel.CENTER);
+            jLabel.setHorizontalAlignment(JLabel.CENTER);
             jLabel.setFont(new Font("Monaco", Font.PLAIN, 14));
-            jLabel.setPreferredSize(new Dimension(700, 200));
-            jLabel.setMaximumSize(new Dimension(700, 200));
+            jLabel.setPreferredSize(new Dimension((mainPanel.getWidth()/4)*2, 200));
+            jLabel.setMaximumSize(new Dimension((mainPanel.getWidth()/4)*2, 200));
             jLabel.setForeground(new Color(0, 0, 0));
             jLabel.setBackground(new Color(205, 205, 205));
             buildingSpace.add(jLabel);
         }
+        listOfFloorJLabel.get(noOfFloors).setBackground(new Color(000, 155, 100));
+        currentFloor.set(0);
+        //TODO
+        targetF.set(5);
     }
 
 //    public void updateFloors(int noOfFloors) {
@@ -75,6 +97,39 @@ public class Simulation extends JFrame{
 //        addFloors(noOfFloors);
 //    }
     private void addDetailsToGUI() {
+//        controlSpace.setPreferredSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
+//        controlSpace.setMaximumSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
+    }
 
+    private void liftMovingAnimation(int targetFloor) {
+        //TODO
+        new Thread(new Runnable() {
+            public void run(){
+                try{
+                    int floor = getCurrentFloor();
+                    while (floor <= targetFloor) {
+                        listOfFloorJLabel.get(listOfFloorJLabel.size() - floor - 1).setBackground(new Color(000, 155, 100));
+                        SwingUtilities.updateComponentTreeUI(buildingSpace);
+                        floor++;
+                        Thread.currentThread().sleep(500);
+                        if(floor != targetFloor + 1) {
+                            listOfFloorJLabel.get(listOfFloorJLabel.size() - floor).setBackground(new Color(205, 205, 205));
+                        }
+                    }
+                    currentFloor.set(targetFloor);
+                    //TODO: just testing out curernt floor & target floor stuff
+                    System.out.println("currentFloor: " + currentFloor);
+                    targetF.set(targetF.get() + 2);
+                } catch(Exception e){ }
+            }
+        }).start();
+    }
+
+    /**
+     * Getter
+     * @return currentFloor
+     */
+    private int getCurrentFloor() {
+        return this.currentFloor.get();
     }
 }
