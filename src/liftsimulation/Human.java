@@ -1,14 +1,14 @@
 package liftsimulation;
 
 public class Human {
-    private int currentFloor;
-    private int targetFloor;
+    private Floor currentFloor;
+    private Floor targetFloor;
     private int timeSpentInLift;
 
     /**
      * Constructor
      */
-    public Human(int currentFloor, int targetFloor) {
+    public Human(Floor currentFloor, Floor targetFloor) {
         this.currentFloor = currentFloor;
         this.targetFloor = targetFloor;
     }
@@ -19,11 +19,11 @@ public class Human {
     }
 
     // Getter/Setters
-    public void setCurrentFloor(int currentFloor) {
+    public void setCurrentFloor(Floor currentFloor) {
         this.currentFloor = currentFloor;
     }
 
-    public void setTargetFloor(int targetFloor) {
+    public void setTargetFloor(Floor targetFloor) {
         this.targetFloor = targetFloor;
     }
 

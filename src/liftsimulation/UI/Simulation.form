@@ -29,7 +29,7 @@
             <properties>
               <background color="-13290187"/>
               <font name="Monaco" size="14"/>
-              <foreground color="-524302"/>
+              <foreground color="-16777216"/>
             </properties>
             <border type="none"/>
             <children>
@@ -38,7 +38,7 @@
                   <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font name="Monaco" size="14"/>
+                  <font name=".AppleSystemUIFont" size="16"/>
                   <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
                   <horizontalTextPosition value="0"/>
@@ -50,7 +50,7 @@
                   <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font name="Monaco" size="14"/>
+                  <font name=".AppleSystemUIFont" size="16"/>
                   <foreground color="-1"/>
                   <horizontalAlignment value="0"/>
                   <horizontalTextPosition value="0"/>
@@ -63,7 +63,9 @@
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <font name=".AppleSystemUIFont" size="14"/>
+                </properties>
                 <border type="none"/>
                 <children/>
               </grid>
@@ -87,7 +89,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <horizontalAlignment value="0"/>
                       <text value="10"/>
                     </properties>
@@ -99,7 +101,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <horizontalAlignment value="0"/>
                       <text value="5"/>
                     </properties>
@@ -110,7 +112,7 @@
                     </constraints>
                     <properties>
                       <background color="-6118750"/>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <opaque value="false"/>
                       <text value="Update floors"/>
                     </properties>
@@ -120,7 +122,7 @@
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <opaque value="false"/>
                       <text value="Update lift capacity"/>
                     </properties>
@@ -132,7 +134,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <horizontalAlignment value="0"/>
                       <text value="20"/>
                     </properties>
@@ -142,7 +144,7 @@
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <horizontalTextPosition value="0"/>
                       <opaque value="false"/>
                       <text value="Update number of people"/>
@@ -153,7 +155,7 @@
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Monaco"/>
+                      <font name=".AppleSystemUIFont"/>
                       <majorTickSpacing value="1"/>
                       <maximum value="10"/>
                       <minimum value="1"/>
@@ -168,7 +170,7 @@
                       <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Monaco" size="14"/>
+                      <font name=".AppleSystemUIFont" size="14"/>
                       <text value="Simulation speed:"/>
                     </properties>
                   </component>
@@ -184,6 +186,7 @@
             <properties>
               <background color="-13290187"/>
               <font name="Monaco" size="14"/>
+              <foreground color="-16777216"/>
             </properties>
             <border type="none"/>
             <children>
@@ -192,7 +195,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font name="Monaco" size="16"/>
+                  <font name=".AppleSystemUIFont" size="16" style="1"/>
                   <foreground color="-1"/>
                   <text value="Created by Gowthaman Ravindrathas"/>
                 </properties>
@@ -202,10 +205,10 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font name="Monaco" size="14"/>
+                  <font name=".AppleSystemUIFont" size="16"/>
                   <foreground color="-1"/>
                   <horizontalAlignment value="10"/>
-                  <text value="Check out my work at: www.gowtham.co.uk"/>
+                  <text value="www.gowtham.co.uk"/>
                   <verticalAlignment value="1"/>
                   <verticalTextPosition value="1"/>
                 </properties>
