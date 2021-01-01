@@ -1,6 +1,8 @@
 package liftsimulation.UI;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -23,6 +25,8 @@ public class Simulation extends JFrame {
     private JTextField a20TextField;
     private JButton updateNumberOfPeopleButton;
     private JSlider simulationSpeed;
+    private JLabel titleBuilding;
+    private JLabel titleControls;
 
     ArrayList<JLabel> listOfFloorJLabel = new ArrayList<>();
     //TODO
@@ -38,6 +42,7 @@ public class Simulation extends JFrame {
         this.setSize(Settings.WIDTH,Settings.HEIGHT);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(mainPanel);
+        this.addDetailsToGUI();
 
         /**
          * Update number of floors to the building
@@ -54,7 +59,6 @@ public class Simulation extends JFrame {
                 SwingUtilities.updateComponentTreeUI(mainPanel);
             }
         });
-        addDetailsToGUI();
 
         //TODO : testing out lift animation on this button
         updateNumberOfPeopleButton.addActionListener(new ActionListener() {
@@ -104,8 +108,10 @@ public class Simulation extends JFrame {
     }
 
     private void addDetailsToGUI() {
-//        controlSpace.setPreferredSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
-//        controlSpace.setMaximumSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
+        titleBuilding.setBorder( new MatteBorder(10, 0, 0, 0, new Color(53, 53, 53)));
+        titleControls.setBorder( new MatteBorder(10, 0, 0, 0, new Color(53, 53, 53)));
+        controlSpace.setBorder( new MatteBorder(10, 0, 10, 10, new Color(53, 53, 53)));
+        buildingSpace.setBorder( new MatteBorder(10, 10, 10, 0, new Color(53, 53, 53)));
     }
 
     private void liftMovingAnimation(int targetFloor) {

@@ -25,7 +25,7 @@ public class Floor {
     public boolean getIsLiftOnFloor() {
         return isLiftOnFloor;
     }
-    
+
     public void setIsLiftOnFloor(boolean b) {
         this.isLiftOnFloor = b;
     }
