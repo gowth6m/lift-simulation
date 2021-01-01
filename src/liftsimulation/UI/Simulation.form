@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="506" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -62,7 +62,7 @@
                 <border type="none"/>
                 <children/>
               </grid>
-              <grid id="71949" binding="controlSpace" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="71949" binding="controlSpace" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -72,7 +72,7 @@
                 <children>
                   <vspacer id="47422">
                     <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
                   <component id="775c8" class="javax.swing.JTextField" binding="enterNumberOfFloorsTextField" default-binding="true">
@@ -82,19 +82,21 @@
                       </grid>
                     </constraints>
                     <properties>
+                      <font name="Monaco" size="14"/>
                       <horizontalAlignment value="0"/>
-                      <text value="Enter number of floors here"/>
+                      <text value="10"/>
                     </properties>
                   </component>
-                  <component id="288ff" class="javax.swing.JTextField" binding="liftCapacityTextField" default-binding="true">
+                  <component id="288ff" class="javax.swing.JTextField" binding="a5TextField" default-binding="true">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
+                      <font name="Monaco" size="14"/>
                       <horizontalAlignment value="0"/>
-                      <text value="Lift capacity"/>
+                      <text value="5"/>
                     </properties>
                   </component>
                   <component id="98315" class="javax.swing.JButton" binding="updateFloorsButton" default-binding="true">
@@ -103,6 +105,7 @@
                     </constraints>
                     <properties>
                       <background color="-6118750"/>
+                      <font name="Monaco" size="14"/>
                       <opaque value="false"/>
                       <text value="Update floors"/>
                     </properties>
@@ -112,19 +115,21 @@
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="Monaco" size="14"/>
                       <opaque value="false"/>
                       <text value="Update lift capacity"/>
                     </properties>
                   </component>
-                  <component id="114ef" class="javax.swing.JTextField" binding="numberOfPeopleInTextField" default-binding="true">
+                  <component id="114ef" class="javax.swing.JTextField" binding="a20TextField" default-binding="true">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
+                      <font name="Monaco" size="14"/>
                       <horizontalAlignment value="0"/>
-                      <text value="Number of people in building"/>
+                      <text value="20"/>
                     </properties>
                   </component>
                   <component id="ffb4a" class="javax.swing.JButton" binding="updateNumberOfPeopleButton" default-binding="true">
@@ -132,9 +137,34 @@
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="Monaco" size="14"/>
                       <horizontalTextPosition value="0"/>
                       <opaque value="false"/>
                       <text value="Update number of people"/>
+                    </properties>
+                  </component>
+                  <component id="d8b82" class="javax.swing.JSlider" binding="simulationSpeed">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Monaco"/>
+                      <majorTickSpacing value="1"/>
+                      <maximum value="10"/>
+                      <minimum value="1"/>
+                      <minorTickSpacing value="1"/>
+                      <paintLabels value="true"/>
+                      <snapToTicks value="true"/>
+                      <value value="1"/>
+                    </properties>
+                  </component>
+                  <component id="3c8a0" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Monaco" size="14"/>
+                      <text value="Simulation speed:"/>
                     </properties>
                   </component>
                 </children>

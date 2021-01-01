@@ -1,6 +1,8 @@
 package liftsimulation.UI;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,16 +18,17 @@ public class Simulation extends JFrame {
     private JPanel controlSpace;
     private JButton updateFloorsButton;
     private JTextField enterNumberOfFloorsTextField;
-    private JTextField liftCapacityTextField;
+    private JTextField a5TextField;
     private JButton updateLiftCapacityButton;
-    private JTextField numberOfPeopleInTextField;
+    private JTextField a20TextField;
     private JButton updateNumberOfPeopleButton;
+    private JSlider simulationSpeed;
 
     ArrayList<JLabel> listOfFloorJLabel = new ArrayList<>();
-//    private volatile int currentFloor = 0;
     //TODO
     final AtomicInteger currentFloor = new AtomicInteger(0);
     final AtomicInteger targetF = new AtomicInteger(5);
+    final AtomicInteger speed = new AtomicInteger(1);
 
     /**
      * Default constructor
@@ -61,6 +64,14 @@ public class Simulation extends JFrame {
                 System.out.println("button function: " + Thread.currentThread().getName());
             }
         });
+
+        // For the simulation speed slider
+        simulationSpeed.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                speed.set(simulationSpeed.getValue());
+            }
+        });
     }
 
     /**
@@ -92,10 +103,6 @@ public class Simulation extends JFrame {
         targetF.set(5);
     }
 
-//    public void updateFloors(int noOfFloors) {
-//        buildingSpace.removeAll();
-//        addFloors(noOfFloors);
-//    }
     private void addDetailsToGUI() {
 //        controlSpace.setPreferredSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
 //        controlSpace.setMaximumSize(new Dimension(mainPanel.getWidth()/2, buildingSpace.getHeight()));
@@ -107,18 +114,18 @@ public class Simulation extends JFrame {
             public void run(){
                 try{
                     int floor = getCurrentFloor();
+                    int simSpeed = 1000/(getSpeed()*5);
                     while (floor <= targetFloor) {
                         listOfFloorJLabel.get(listOfFloorJLabel.size() - floor - 1).setBackground(new Color(000, 155, 100));
                         SwingUtilities.updateComponentTreeUI(buildingSpace);
                         floor++;
-                        Thread.currentThread().sleep(500);
+                        Thread.currentThread().sleep(simSpeed);
                         if(floor != targetFloor + 1) {
                             listOfFloorJLabel.get(listOfFloorJLabel.size() - floor).setBackground(new Color(205, 205, 205));
                         }
                     }
                     currentFloor.set(targetFloor);
-                    //TODO: just testing out curernt floor & target floor stuff
-                    System.out.println("currentFloor: " + currentFloor);
+                    //TODO: just testing out current floor & target floor stuff
                     targetF.set(targetF.get() + 2);
                 } catch(Exception e){ }
             }
@@ -131,5 +138,9 @@ public class Simulation extends JFrame {
      */
     private int getCurrentFloor() {
         return this.currentFloor.get();
+    }
+
+    private int getSpeed() {
+        return this.speed.get();
     }
 }
