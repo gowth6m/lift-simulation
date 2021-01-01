@@ -1,4 +1,5 @@
 # lift-simulation
 New improved version of the lift system simulation!
 
-![alt text](https://i.imgur.com/c1eosLp.png)
+
+<img src="https://i.imgur.com/c1eosLp.png" />)
