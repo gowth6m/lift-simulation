@@ -96,7 +96,7 @@ public class Simulation extends JFrame {
         buildingSpace.setLayout(new BoxLayout(buildingSpace, BoxLayout.Y_AXIS));
         for (int i = noOfFloors; i >= 0; i--) {
             //TODO
-            listOfFloorJLabel.add(new JLabel("Floor " + i + " |  No. of People on floor: " + getNoOFPeopleOnFloor(i)));
+            listOfFloorJLabel.add(new JLabel("Floor " + i + "           No. of people on floor: " + getNoOFPeopleOnFloor(i)));
         }
         // For each floor label in building part of GUI
         for (JLabel jLabel : listOfFloorJLabel) {
